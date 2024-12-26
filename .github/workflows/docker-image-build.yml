@@ -30,7 +30,7 @@ jobs:
 
     - name: Load Environment Variables
       run: |
-        source ../../build.env
+        source ./build.env
         echo "REGISTRY=${REGISTRY}"
         echo "PROJECT_NAME=${PROJECT_NAME}"
 
@@ -40,9 +40,10 @@ jobs:
 
     - name: Build and Push Docker Image
       run: |
-        export APPS_JSON_BASE64=$(base64 -w 0 ../../apps.json)
-        export IMAGE_NAME=${REGISTRY}/${PROJECT_NAMESPACE}/${PROJECT_NAME}/${IMAGE}:$(cat ../../version.txt)
-        cd ../../frappe_docker
+        export APPS_JSON_BASE64=$(base64 -w 0 ./apps.json)
+        export IMAGE_NAME=${REGISTRY}/${PROJECT_NAMESPACE}/${PROJECT_NAME}/${IMAGE}:$(cat ./version.txt)
+        echo "Building Docker image: ${IMAGE_NAME}"
+        cd frappe_docker
         docker build \
           --build-arg=FRAPPE_PATH=${FRAPPE_REPO} \
           --build-arg=FRAPPE_BRANCH=${FRAPPE_VERSION} \
