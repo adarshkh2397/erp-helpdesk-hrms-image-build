@@ -28,19 +28,17 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Load Environment Variables
-      run: |
-        source ./build.env
-        echo "REGISTRY=${REGISTRY}"
-        echo "PROJECT_NAME=${PROJECT_NAME}"
-
     - name: Clone frappe_docker Repository
       run: |
         git clone https://github.com/frappe/frappe_docker
 
     - name: Build and Push Docker Image
       run: |
+        source ./build.env
+        echo "REGISTRY=${REGISTRY}"
+        echo "PROJECT_NAME=${PROJECT_NAME}"
         export APPS_JSON_BASE64=$(base64 -w 0 ./apps.json)
+        echo "${APPS_JSON_BASE64}"
         export IMAGE_NAME=${REGISTRY}/${PROJECT_NAMESPACE}/${PROJECT_NAME}/${IMAGE}:$(cat ./version.txt)
         echo "Building Docker image: ${IMAGE_NAME}"
         cd frappe_docker
