@@ -1,7 +1,7 @@
 [
     {
       "url": "https://github.com/frappe/erpnext.git",
-      "branch": "v15.46.2"
+      "branch": "v15.47.0"
     },
     {
       "url": "https://github.com/frappe/hrms.git",
