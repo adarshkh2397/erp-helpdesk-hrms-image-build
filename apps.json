@@ -1,14 +1,18 @@
 [
     {
       "url": "https://github.com/frappe/erpnext.git",
-      "branch": "v15.47.0"
+      "branch": "v15.48.4"
     },
     {
       "url": "https://github.com/frappe/hrms.git",
-      "branch": "v15.36.1"
+      "branch": "v15.38.0"
     },
     {
       "url": "https://github.com/frappe/helpdesk.git",
-      "branch": "v1.3.1"
+      "branch": "v1.3.2"
+    },
+    {
+      "url": "https://github.com/frappe/print_designer.git",
+      "branch": "v1.4.3"
     }
 ]
