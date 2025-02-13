@@ -37,13 +37,15 @@ jobs:
         export APPS_JSON_BASE64=$(base64 -w 0 ./apps.json)
         export IMAGE_NAME=${REGISTRY}/${PROJECT_NAMESPACE}/${PROJECT_NAME}/${IMAGE}:$(cat ./version.txt)
         cd frappe_docker
+
         docker buildx build \
           --platform linux/arm64 \
-          --build-arg=FRAPPE_PATH=${FRAPPE_REPO} \
-          --build-arg=FRAPPE_BRANCH=${FRAPPE_VERSION} \
-          --build-arg=PYTHON_VERSION=${PY_VERSION} \
-          --build-arg=NODE_VERSION=${NODEJS_VERSION} \
-          --build-arg=APPS_JSON_BASE64=${APPS_JSON_BASE64} \
-          --tag=${IMAGE_NAME} \
-          --file=${DOCKERFILE} \
-          --push
+          --build-arg FRAPPE_PATH=${FRAPPE_REPO} \
+          --build-arg FRAPPE_BRANCH=${FRAPPE_VERSION} \
+          --build-arg PYTHON_VERSION=${PY_VERSION} \
+          --build-arg NODE_VERSION=${NODEJS_VERSION} \
+          --build-arg APPS_JSON_BASE64=${APPS_JSON_BASE64} \
+          --tag ${IMAGE_NAME} \
+          --file ${DOCKERFILE} \
+          --push \
+          .
