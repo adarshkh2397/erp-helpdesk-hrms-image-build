@@ -8,8 +8,8 @@
       "branch": "v15.43.0"
     },
     {
-      "url": "https://github.com/frappe/helpdesk.git",
-      "branch": "v1.7.0"
+      "url": "https://github.com/adarshkh2397/helpdesk.git",
+      "branch": "build-config-fix"
     },
     {
       "url": "https://github.com/frappe/builder.git",
@@ -17,6 +17,6 @@
     },
     {
       "url": "https://github.com/adarshkh2397/lsp_customizations.git",
-      "branch": "v1.0.0"
+      "branch": "v1.1.0"
     }
 ]
