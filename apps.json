@@ -8,6 +8,10 @@
       "branch": "v15.43.0"
     },
     {
+      "url": "https://github.com/frappe/lms.git",
+      "branch": "v2.27.0"
+    },
+    {
       "url": "https://github.com/adarshkh2397/helpdesk.git",
       "branch": "build-config-fix"
     },
